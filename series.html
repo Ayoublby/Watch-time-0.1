@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- الشريط العلوي -->
     <header class="top-bar">
         <button class="burger-menu" onclick="toggleMenu()">
             <div class="bar"></div>
@@ -17,7 +16,6 @@
         </button>
     </header>
 
-    <!-- القائمة الجانبية -->
     <nav class="nav-menu">
         <ul>
             <li><a href="index.html">الصفحة الرئيسية</a></li>
@@ -40,12 +38,10 @@
     <script src="movies.js"></script>
     <script src="script.js"></script>
     <script>
-        // عرض المسلسلات فقط
         const moviesContainer = document.getElementById("moviesContainer");
         const filteredSeries = movies.filter(movie => movie.type === "series");
         displayMovies(filteredSeries);
 
-        // البحث في المسلسلات
         document.getElementById("searchInput").addEventListener("input", function() {
             const searchValue = this.value.toLowerCase();
             const filteredSeries = movies.filter(movie => {
