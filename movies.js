@@ -61,10 +61,20 @@ const movies = [
     ], type: "series" },
     { title: "500 Days of Summer", description: "قصة حب غير تقليدية بين توم وسمر على مدى 500 يوم...", genre: "رومانسي, دراما", image: "IMG_20250307_165242_896.jpg", link: "https://t.me/anas52ly/1130", type: "movie" },
     { title: "Radius", description: "ليام يستيقظ من حادث سيارة دون ذاكرة، ويجد جثثًا بأعين شاحبة...", genre: "رعب, إثارة, خيال علمي", image: "IMG_20250307_165430_040.jpg", link: "https://t.me/anas52ly/1162", type: "movie" },
-    { title: "Old School (2003)", description: "ثلاثة رجال يحاولون استعادة أيام الدراسة القديمة ومغامراتهم في قالب كوميدي...", genre: "كوميدي", image: "IMG_20250307_165600_737.jpg", link: "https://t.me/anas52ly/1292", type: "movie" }
+    { title: "Old School (2003)", description: "ثلاثة رجال يحاولون استعادة أيام الدراسة القديمة ومغامراتهم في قالب كوميدي...", genre: "كوميدي", image: "IMG_20250307_165600_737.jpg", link: "https://t.me/anas52ly/1292", type: "movie" },
+    { title: "Invincible S1", description: "يشبه مارك غريسون البالغ من العمر سبعة عشر عامًا كل شخص في عمره، باستثناء أن والده هو أومني مان، أقوى بطل خارق على هذا الكوكب. بينما يطوّر 'مارك' قواه الخاصة، يكتشف أن إرث والده قد لا يكون بطوليًا كما يبدو.", genre: "أكشن, مغامرة, دراما", image: "IMG_20250310_010623_595.jpg", episodes: [
+        { episode: 1, link: "https://t.me/anas52ly/1222" },
+        { episode: 2, link: "https://t.me/anas52ly/1223" },
+        { episode: 3, link: "https://t.me/anas52ly/1229" },
+        { episode: 4, link: "https://t.me/anas52ly/1230" },
+        { episode: 5, link: "https://t.me/anas52ly/1231" },
+        { episode: 6, link: "https://t.me/anas52ly/1232" },
+        { episode: 7, link: "https://t.me/anas52ly/1233" },
+        { episode: 8, link: "https://t.me/anas52ly/1234" }
+    ], type: "anime" }
 ];
 
-// عرض الأفلام والمسلسلات على الصفحة
+// عرض الأفلام والمسلسلات والأنمي على الصفحة
 function displayMovies(filteredMovies) {
     const container = document.getElementById("moviesContainer");
     container.innerHTML = "";
@@ -76,7 +86,7 @@ function displayMovies(filteredMovies) {
         let buttonHTML = "";
         if (movie.type === "movie") {
             buttonHTML = `<a class="button" href="${movie.link}" target="_blank">مشاهدة الآن</a>`;
-        } else if (movie.type === "series") {
+        } else if (movie.type === "series" || movie.type === "anime") { // دعم نوع "anime"
             buttonHTML = `<button class="button" onclick="showEpisodes(${movies.indexOf(movie)})">عرض الحلقات</button>`;
         }
 
@@ -113,7 +123,7 @@ function showEpisodes(index) {
     }
 }
 
-// البحث في الأفلام والمسلسلات
+// البحث في الأفلام والمسلسلات والأنمي
 document.getElementById("searchInput").addEventListener("input", function() {
     const searchValue = this.value.toLowerCase();
     const filteredMovies = movies.filter(movie => {
@@ -125,6 +135,8 @@ document.getElementById("searchInput").addEventListener("input", function() {
             return matchesSearch && movie.type === "movie";
         } else if (searchValue.includes("مسلسل") || searchValue.includes("مسلسلات")) {
             return matchesSearch && movie.type === "series";
+        } else if (searchValue.includes("أنمي") || searchValue.includes("انمي")) { // دعم البحث عن الأنمي
+            return matchesSearch && movie.type === "anime";
         } else if (searchValue.includes("أكشن") || searchValue.includes("دراما") || searchValue.includes("خيال علمي") || searchValue.includes("رعب") || searchValue.includes("كوميدي") || searchValue.includes("رومانسي")) {
             return matchesSearch && movie.genre.toLowerCase().includes(searchValue);
         } else {
