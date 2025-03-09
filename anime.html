@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأنمي - Watch Time</title>
+    <link rel="icon" type="image/jpeg" href="received_650002127573605.jpeg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header class="top-bar">
+        <button class="burger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+    </header>
+
+    <!-- القائمة الجانبية -->
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="movies.html">الأفلام</a></li>
+            <li><a href="series.html">المسلسلات</a></li>
+            <li><a href="anime.html">الأنمي</a></li>
+            <li><a href="about.html">معلومات الموقع</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-wrapper">
+        <h1>أنمي</h1>
+        <input type="text" id="searchInput" placeholder="🔍...ابحث عن أنمي">
+        <div class="movies-container" id="moviesContainer"></div>
+    </div>
+
+    <footer>
+        © جميع الحقوق محفوظة 2025 | AYØUB تم الإنشاء بواسطة V 0.2
+    </footer>
+
+    <script src="movies.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // عرض الأنمي فقط
+        const moviesContainer = document.getElementById("moviesContainer");
+        const filteredAnime = movies.filter(movie => movie.type === "anime");
+        displayMovies(filteredAnime);
+
+        // البحث في الأنمي
+        document.getElementById("searchInput").addEventListener("input", function() {
+            const searchValue = this.value.toLowerCase();
+            const filteredAnime = movies.filter(movie => {
+                return movie.type === "anime" && (
+                    movie.title.toLowerCase().includes(searchValue) ||
+                    movie.description.toLowerCase().includes(searchValue) ||
+                    movie.genre.toLowerCase().includes(searchValue)
+                );
+            });
+            displayMovies(filteredAnime);
+        });
+    </script>
+</body>
+</html>
