@@ -1,54 +1,125 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #1C2526; /* خلفية داكنة مريحة */
+    color: #E0E0E0; /* نص فاتح */
     margin: 0;
     padding: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
+/* تأثير خلفية متحركة ناعم */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(244, 162, 97, 0.1), rgba(231, 111, 81, 0.1), rgba(28, 37, 38, 0.9));
+    z-index: -1;
+    animation: subtleGlow 12s infinite alternate ease-in-out;
+}
+
+@keyframes subtleGlow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.3; }
+}
+
+/* الشريط العلوي */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #2E2E2E; /* رمادي غامق */
+    padding: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* لضمان عدم التداخل مع الشريط */
+.content-wrapper {
+    padding-top: 50px;
+}
+
+/* العنوان */
 h1 {
     margin-top: 20px;
-    color: #ffcc00;
+    color: #F4A261; /* برتقالي دافئ */
+    text-shadow: 0 0 8px rgba(244, 162, 97, 0.5);
+    animation: fadeIn 0.8s ease-in-out;
+    font-size: 28px;
 }
 
-/* تصميم خانة البحث */
+/* تأثير الظهور */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* خانة البحث */
 #searchInput {
-    width: 80%;
-    max-width: 400px;
+    width: 85%;
+    max-width: 450px;
     padding: 10px;
-    margin: 15px 0;
-    border: 2px solid #ff6600;
+    margin: 20px auto;
+    border: 2px solid #F4A261;
     border-radius: 8px;
     outline: none;
     font-size: 16px;
-    background-color: #2c2c2c;
-    color: white;
+    background-color: #2A3439; /* خلفية متناسقة */
+    color: #E0E0E0;
     text-align: center;
-    transition: 0.3s;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #searchInput:focus {
-    border-color: #cc5200;
-    box-shadow: 0px 0px 8px rgba(255, 102, 0, 0.7);
+    border-color: #E76F51; /* برتقالي غامق */
+    box-shadow: 0 0 6px rgba(231, 111, 81, 0.6);
 }
 
+/* الكروت */
 .movies-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
+    padding: 25px;
+    max-width: 1300px;
     margin: auto;
+    animation: slideUp 0.6s ease-in-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .movie-card {
-    background-color: #2c2c2c;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #2A3439; /* خلفية متناسقة */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(244, 162, 97, 0.2);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.movie-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    background-color: #313B41; /* تغيير خفيف */
+}
+
+.movie-card:active {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+    background-color: #252E32; /* تأثير ناعم */
 }
 
 .movie-card img {
@@ -60,76 +131,256 @@ h1 {
 
 .movie-card h2 {
     font-size: 20px;
-    margin: 10px 0;
-    color: #ffcc00;
+    margin: 12px 0;
+    color: #F4A261; /* عنوان بارز */
 }
 
 .movie-card p {
     font-size: 14px;
-    margin-bottom: 10px;
-    line-height: 1.5;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #E0E0E0;
 }
 
 .button {
-    background-color: #ff6600;
-    color: white;
-    padding: 8px 12px;
+    background-color: #F4A261;
+    color: #1C2526; /* تباين مع الخلفية */
+    padding: 8px 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     font-size: 14px;
     display: inline-block;
     text-align: center;
-    margin-top: 10px;
-    transition: 0.3s;
+    margin-top: 12px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .button:hover {
-    background-color: #cc5200;
-    transform: scale(1.05);
+    background-color: #E76F51; /* برتقالي غامق */
 }
 
 .button:active {
-    background-color: #cc5200;
-    transform: scale(0.95);
+    background-color: #D95F41; /* أغمق قليلاً */
 }
 
 /* تنسيق الحلقات */
 .episodes-container {
-    margin-top: 10px;
-    display: flex;
+    margin-top: 12px;
+    display: none;
     flex-direction: column;
-    align-items: center; /* لجعل العناصر في المنتصف أفقيًا */
+    align-items: center;
 }
 
 .episodes-container a {
     display: block;
-    margin: 8px 0;
+    margin: 10px 0;
     padding: 10px;
-    background-color: #333;
+    background-color: #2A3439;
     border-radius: 5px;
-    color: white;
+    color: #E0E0E0;
     text-decoration: none;
-    transition: 0.3s;
-    text-align: center; /* لجعل النص في المنتصف */
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
 }
 
 .episodes-container a:hover {
-    background-color: #ff6600; /* لون البرتقالي عند التمرير */
-    transform: scale(1.05); /* تكبير الحلقة قليلاً */
+    background-color: #E76F51;
+    color: #1C2526;
 }
 
 .episodes-container a:active {
-    background-color: #cc5200; /* لون برتقالي داكن عند الضغط */
-    transform: scale(0.95); /* تصغير الحلقة قليلاً عند الضغط */
+    background-color: #D95F41;
+}
+
+/* تنسيق صفحة المعلومات */
+.about-container {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+    background-color: #2A3439;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.6s ease-in-out;
+}
+
+.about-container p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 15px 0;
+    color: #E0E0E0;
+}
+
+.contact-link {
+    color: #F4A261;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contact-link:hover {
+    background-color: #E76F51;
+    color: #1C2526;
+}
+
+.contact-link:active {
+    background-color: #D95F41;
 }
 
 /* حقوق في الأسفل */
 footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #111;
-    color: gray;
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #A0A0A0; /* رمادي متوسط */
     font-size: 14px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+}
+
+footer:hover {
+    background-color: #353535;
+}
+
+/* تنسيق زر الهمبرغر */
+.burger-menu {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    transition: none;
+    border-radius: 4px;
+}
+
+.burger-menu .bar {
+    width: 20px;
+    height: 2px;
+    background-color: #F4A261; /* لون متناسق */
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* تنسيق القائمة الجانبية */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background-color: #2E2E2E; /* نفس لون الشريط العلوي */
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    padding-top: 60px;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.nav-menu.active {
+    left: 0;
+    display: block;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    margin: 25px 0;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #E0E0E0;
+    font-size: 17px;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border: 2px solid rgba(244, 162, 97, 0.3);
+    border-radius: 5px;
+    margin: 0 12px;
+}
+
+.nav-menu ul li a:hover {
+    background-color: #E76F51;
+    color: #1C2526;
+}
+
+.nav-menu ul li a:active {
+    background-color: #D95F41;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .movies-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .movie-card {
+        padding: 15px;
+    }
+
+    .movie-card img {
+        height: 250px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .about-container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .nav-menu {
+        width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .movies-container {
+        grid-template-columns: 1fr;
+    }
+
+    #searchInput {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .nav-menu {
+        width: 80%;
+    }
+
+    .nav-menu ul li a {
+        font-size: 15px;
+        padding: 8px 15px;
+    }
+}
+
+/* تحريك الأشرطة لتصبح X */
+.burger-menu.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-4px, 5px);
+}
+
+.burger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-4px, -5px);
+}
+
+/* منع التمرير عند فتح القائمة */
+body.no-scroll {
+    overflow: hidden;
 }

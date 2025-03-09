@@ -2,6 +2,7 @@ const movies = [
     { title: "Kate", description: "يدس سم قاتل لمغتالة قاسية تعمل في 'طوكيو' خلال مهمتها الأخيرة ... ولديها أقل من أربع وعشرين ساعة لتعرف من أمر بقتلها لتذيقه أمر الانتقام.", genre: "أكشن, إثارة", image: "kate.jpg", link: "https://t.me/anas52ly/1128", type: "movie" },
     { title: "Sting", description: "بعد تربية عنكبوت موهوب بشكل مثير للقلق في السر، يجب على شارلوت البالغة من العمر 12 عامًا مواجهة الحقائق المتعلقة بحيوانها الأليف - والكفاح من أجل بقاء عائلتها - عندما يتحول المخلوق الذي كان ساحرًا في السابق بسرعة إلى وحش عملاق يأكل اللحم.", genre: "رعب, إثارة, خيال علمي", image: "Sting.jpg", link: "https://t.me/anas52ly/1251", type: "movie" },
     { title: "GoodFellas (1990)", description: "يروي الفيلم قصة هنري هيل، وهو رجل شاب من الطبقة العاملة ينجذب إلى عالم الچريمة المنظمة...", genre: "جريمة, دراما", image: "IMG_20250307_010933_435.jpg", link: "https://t.me/anas52ly/1243", type: "movie" },
+    
     { title: "Pulp Fiction (1994)", description: "تتبع عدة قصص تتألف من أحداث متشابكة تُروى بشكل غير خطي، تدور حول عالم الجريمة والعنف...", genre: "جريمة, دراما", image: "IMG_20250307_011150_920.jpg", link: "https://t.me/anas52ly/1255", type: "movie" },
     { title: "Drive (2011)", description: "يتعرف على جارته (إيرين)، ويقع في حبها، ولكن بعد موت زوجها يسعى إلى مساعدتها ليضمن لها حياة كريمة وآمنة.", genre: "أكشن, دراما, جريمة", image: "Drive 2011.jpg", link: "https://t.me/anas52ly/1132", type: "movie" },
     { title: "Nobody (2021)", description: "في إطار من الحركة والتشويق، يمد رجل من أحد المارة يد العون والمساعدة لامرأة تتعرض للضرب والتحرش...", genre: "أكشن, جريمة, إثارة", image: "nobody.jpg", link: "https://t.me/anas52ly/1134", type: "movie" },
@@ -73,7 +74,7 @@ const movies = [
         title: "From S1",
         description: "في مدينة مرعبة في وسط أمريكا تحاصر كل من يدخلها، يقاتل السكان للبقاء على قيد الحياة والبحث عن مخرج. يواجهون تهديدات الغابة المحيطة والمخلوقات المرعبة التي تخرج بعد غروب الشمس.",
         genre: "رعب, دراما, غموض",
-        image: "01b8edd40-1.jpg",
+        image: "IMG_20250307_163026_866.jpg",
         episodes: [
             { episode: 1, link: "https://t.me/anas52ly/1260" },
             { episode: 2, link: "https://t.me/anas52ly/1261" },
@@ -214,4 +215,4 @@ document.getElementById("searchInput").addEventListener("input", function() {
 });
 
 // عرض كل المحتوى عند تحميل الصفحة
-displayMovies(movies);
+displayMov
