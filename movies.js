@@ -215,4 +215,4 @@ document.getElementById("searchInput").addEventListener("input", function() {
 });
 
 // عرض كل المحتوى عند تحميل الصفحة
-displayMov
+displayMovies(movies);
