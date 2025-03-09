@@ -40,4 +40,24 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
         const href = this.getAttribute('href');
         
         const menu = document.querySelector('.nav-menu');
-        cons
+        const burger = document.querySelector('.burger-menu');
+        menu.classList.remove('active');
+        burger.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+
+        document.body.style.transition = 'opacity 0.3s ease-in-out';
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+            window.location.href = href;
+        }, 300);
+    });
+});
+
+// إعادة ضبط الشفافية عند تحميل الصفحة
+window.addEventListener('load', () => {
+    document.body.style.transition = 'opacity 0.5s ease-in-out';
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100); // تأخير خفيف لتأثير أكثر سلاسة
+});
